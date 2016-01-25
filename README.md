@@ -1,2 +1,2 @@
-# wave
-A website used to help organize a trip
+# Sessions
+A website for users to share fitness routines
