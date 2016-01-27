@@ -1,0 +1,23 @@
+{
+  "name": "sessions",
+  "homepage": "https://github.com/JoshuaHwang/sessions",
+  "authors": [
+    "Joshua Hwang <joshchwang@gmail.com>"
+  ],
+  "description": "A website that provides an opportunity for fashion artists to get their work created",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "Full-stack",
+    "javacript",
+    "fashion"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
