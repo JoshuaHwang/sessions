@@ -1,0 +1,24 @@
+{
+  "name": "sessions",
+  "version": "1.0.0",
+  "description": "A websites that provide's an opportunity for fashion artists to get their work created ",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": ";"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshuaHwang/sessions.git"
+  },
+  "keywords": [
+    "Full-stack",
+    "Javascript",
+    "fashion"
+  ],
+  "author": "Joshua Hwang <joshchwang@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoshuaHwang/sessions/issues"
+  },
+  "homepage": "https://github.com/JoshuaHwang/sessions#readme"
+}
