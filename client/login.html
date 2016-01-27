@@ -11,20 +11,30 @@
     <title>Sessions</title>
   </head>
   <body>
-    <div class="login-fold col-md-7 col-xs-7">
-      <img src="app/images/underarmour.png" class="gisele" alt="Gisele underarmour ad">
-    </div>
-    <div class="login col-md-4 col-xs-4">
-      <div id="company">
-        <h1 id="hook">Create your own session.</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 hidden-xs">
+          <div class="login-fold">
+            <img src="app/images/underarmour.png" class="gisele" alt="Gisele underarmour ad">
+          </div>
+        </div>
+        <div class="col-md-5 col-xs-9 col-xs-3-offset">
+          <div class="login-form">
+            <div id="company">
+              <h1 id="hook">Create your own session.</h1>
+            </div>
+            <form class="form">
+              <input type="text" class="form-control" id="username" placeholder="Username">
+              <input type="password" class="form-control" id="password" placeholder="Password">
+              <button type="submit" class="submit-btn btn btn-default">Log in</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="login-form">
-        <form class="form">
-          <input type="text" class="form-control" id="username" placeholder="Username">
-          <input type="password" class="form-control" id="password" placeholder="Password">
-          <button type="submit" class="submit-btn btn btn-default">Log in</button>
-        </form>
-      </div>
     </div>
+    <footer class="footer">
+      <div class="row">
+      </div>
+    </footer>
   </body>
 </html>
