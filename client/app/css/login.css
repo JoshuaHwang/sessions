@@ -1,1 +1,22 @@
-
+body {
+  background-color: #FAFAFA;
+}
+.login-fold {
+  float: left;
+}
+.gisele {
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  margin-left: -15px;
+}
+.login {
+  margin-top: 400px;
+}
+.form-control {
+  margin-top: 10px;
+}
+.submit-btn {
+  margin-top: 10px;
+  float: right;
+}
