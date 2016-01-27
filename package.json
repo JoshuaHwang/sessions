@@ -20,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/JoshuaHwang/sessions/issues"
   },
-  "homepage": "https://github.com/JoshuaHwang/sessions#readme"
+  "homepage": "https://github.com/JoshuaHwang/sessions#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-print": "^2.0.1",
+    "request": "^2.67.0"
+  }
 }
