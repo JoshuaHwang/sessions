@@ -15,18 +15,22 @@ body {
   margin-bottom: 20px;
   margin-top: 150px;
 }
-.login-form {
-  float: right;
-}
 .form-control {
   margin-top: 30px;
 }
 .submit-btn {
   margin-top: 20px;
   margin-bottom: 30px;
-  float: right;
+
   font-size: 15px;
   font-weight: 500;
+}
+#register-hook {
+  font-weight: 200;
+}
+#register {
+  text-decoration: none;
+  font-size: 15px;
 }
 .footer {
   border-top: 2px solid #D3D3D3;
