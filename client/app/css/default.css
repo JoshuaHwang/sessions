@@ -11,7 +11,6 @@ html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden; 
 }
 body {
   background-color: #FCFCFC;
@@ -22,7 +21,7 @@ body {
       rgba(47, 88, 145, 0.20),
       rgba(47, 88, 145, 0.10)
     ),
-    url('../images/nike-fold.jpg');
+    url('../../app/images/nike-fold.jpg');
   background-size: cover;
   position: absolute;
   left: 0;
