@@ -94,6 +94,12 @@ app.get('/success', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.get('/logout', function(req, res) {
+  console.log('User has logged out');
+  req.logout();
+  res.redirect('/');
+});
+
 var server = require('http').createServer(app);
 
 server.listen(3000);
