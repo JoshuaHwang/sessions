@@ -200,18 +200,19 @@ input::-webkit-search-decoration, input::-webkit-search-cancel-button {
   display: none; 
 }
 .search-input {
-  background: #FEFEFE url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  background: transparent url(http://goldmile.ae/updated/wp-content/plugins/ibr/img/svg/search-icon-active.svg) no-repeat 9px center;
   border: solid 1px transparent;
   padding: 5px 10px 5px 32px;
-  width: 46px;
+  width: 45px;
   border-radius: 10em;
   -webkit-transition: all .5s;
 }
 .search-input:focus {
   width: 130px;
-  background-color: transparent;
-  border-color: #14B876;
-  -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+  background-color: #fff;
+  color: #FEFEFE !important;
+  border-color: #66CC75;
+  box-shadow: 0 0 5px rgba(109,207,246,.5);
 }
 input::-webkit-input-placeholder {
   color: #999;
