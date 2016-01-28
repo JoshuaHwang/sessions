@@ -21,7 +21,7 @@ body {
       rgba(47, 88, 145, 0.20),
       rgba(47, 88, 145, 0.10)
     ),
-    url('../../app/images/nike-fold.jpg');
+    url('/public/images/nike-fold.jpg');
   background-size: cover;
   position: absolute;
   left: 0;
@@ -92,6 +92,11 @@ body {
 .heart-icon:focus, .checkmark-icon:focus, .user-icon:focus, .create-btn:focus {
   outline: 0;
 }
+.filter-container {
+  margin-top: 66px;
+  margin-bottom: 40px;
+  text-align: center;
+}
 .dropbtn {
   background-color: transparent;
   color: #FEFEFE;
@@ -99,8 +104,6 @@ body {
   font-weight: 200;
   border: none;
   cursor: pointer;
-  margin-top: -10px;
-  margin-left: 10px;
 }
 .dropdown {
   position: relative;
@@ -109,6 +112,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
+  text-align: left;
   background-color: #F9F9F9;
   min-width: 160px;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
@@ -129,12 +133,19 @@ body {
 }
 .create-btn {
   color: #FEFEFE;
-  background-color: #FF3366;
+  background-color: transparent;
   font-size: 17px;
   font-weight: 200;
-  width: 100px;
-  border: 3px solid #FF3366;
-  border-radius: 28px;
+  width: 95px;
+  padding-bottom: 10px;
+  border-bottom: 4px solid transparent;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+}
+.create-btn:hover {
+  border-bottom-color: #FF3366;
+  -webkit-transition: border-color .7s ease;
 }
 #closeButton, #submitButton {
   border-radius: 28px;
@@ -154,7 +165,7 @@ label {
 .file-button {
   font-size: 15px;
 }
-.create-btn:hover, #submitButton:hover {
+#submitButton:hover {
   background-color: #E23863;
   border-color: #E23863;
 }
@@ -174,8 +185,52 @@ label {
   margin-right: 3px;
   float: left;
 }
-.filter-container {
-  margin-top: 85px;
-  margin-bottom: 40px;
-}
 
+/*---- SEARCH -----*/
+input {
+  outline: none;
+}
+.search-input {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+input::-webkit-search-decoration, input::-webkit-search-cancel-button {
+  display: none; 
+}
+.search-input {
+  background: #FEFEFE url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  border: solid 1px transparent;
+  padding: 5px 10px 5px 32px;
+  width: 46px;
+  border-radius: 10em;
+  -webkit-transition: all .5s;
+}
+.search-input:focus {
+  width: 130px;
+  background-color: transparent;
+  border-color: #14B876;
+  -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+.search-input {
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+}
+.search-input:hover {
+  background-color: transparent;
+}
+.search-input:focus {
+  width: 130px;
+  padding-left: 32px;
+  color: #000;
+  background-color: transparent;
+  cursor: auto;
+}
+input::-webkit-input-placeholder {
+  color: transparent;
+}
