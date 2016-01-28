@@ -8,7 +8,7 @@ var mongoose      = require('mongoose');
 
 var app = express();
 
-var urlParser     = bodyParser.urlencoded({ extended: false });
+var urlParser     = bodyParser.urlencoded({ extended: true });
 var LocalStrategy = passportLocal.Strategy;
 
 /* ----- LOGIN ----- */
@@ -68,6 +68,30 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 /* ----- ROUTES ----- */
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/login.html'));
+});
+
+var Account = require('./models/account');
+
+app.get('/register', function(req, res) {
+  res.render('register', { });
+});
+
+app.post('/register', function(req, res) {
+  var user = new User({
+    email:    req.body.email,
+    username: req.body.username,
+    password: req.body.password
+  });
+  user.save(function(err) {
+    if(err) {
+      var err = 'Something bad happened, try again!';
+      if(err.code === 11000) {
+        error = 'That email is already taken, try another.';
+      }
+      res.render('register', { error: error });
+    }
+
+  })
 });
 
 app.post('/login', urlParser, passport.authenticate('local', {
