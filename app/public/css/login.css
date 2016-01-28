@@ -5,11 +5,11 @@ body {
   width: 100%;
 }
 #hook {
-  font-size: 50px;
+  font-size: 40px;
   margin-bottom: 20px;
   margin-top: 30px;
 }
-.form-control {
+.signup-form {
   margin-top: 30px;
 }
 .submit-btn {
@@ -19,11 +19,33 @@ body {
   font-weight: 500;
 }
 #register-hook {
+  font-size: 25px;
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+#signUp {
+  border: none;
+  background-color: transparent;
+  color: #3366BB;
+  font-size: 15px;
+  padding: 0px;
+}
+#signUp:focus {
+  outline: 0;
+}
+.line {
+  margin-top: 50px; 
+}
+#registerForm label{
+  font-size: 18px;
   font-weight: 200;
 }
-#register {
-  text-decoration: none;
-  font-size: 15px;
+#registerLabel {
+  font-size: 30px;
+  font-weight: 200;
+}
+.register-form {
+  margin-bottom: 30px;
 }
 .footer {
   border-top: 2px solid #D3D3D3;
@@ -42,12 +64,21 @@ body {
       height: auto;
       width: 576px;
     }
+    .line {
+      display: none;
+    }
   }
 
 /* ---- Medium devices (desktops, 1080px; and up) ---- */
   @media (min-width: 1080px) {
     .gisele {
       width: 600px;
+    }
+    #hook {
+      font-size: 50px;
+    }
+    #register-hook {
+      font-size: 30px;
     }
   }
 
@@ -64,8 +95,3 @@ body {
       width: 817px;
     }
   }
-
-
-
-
-
