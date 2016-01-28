@@ -1,16 +1,13 @@
 body {
   background-color: #FAFAFA;
 }
-.gisele {
-  float: left !important;
-  height: auto;
+.gisele-header {
   width: 100%;
-  margin-left: -35px;
 }
 #hook {
   font-size: 50px;
   margin-bottom: 20px;
-  margin-top: 150px;
+  margin-top: 30px;
 }
 .form-control {
   margin-top: 30px;
@@ -31,3 +28,44 @@ body {
 .footer {
   border-top: 2px solid #D3D3D3;
 }
+
+/* ---- Medium devices (desktops, 992px and up) ---- */
+  @media (min-width: 992px) {
+    .gisele-header {
+      display: none;
+    }
+    #hook {
+      margin-top: 150px;
+    }
+    .gisele {
+      float: left !important;
+      height: auto;
+      width: 576px;
+    }
+  }
+
+/* ---- Medium devices (desktops, 1080px; and up) ---- */
+  @media (min-width: 1080px) {
+    .gisele {
+      width: 600px;
+    }
+  }
+
+/* ---- Medium devices (desktops, 1280px; and up) ---- */
+  @media (min-width: 1280px) {
+    .gisele {
+      width: 738px;
+    }
+  }
+
+/* ---- Medium devices (desktops, 1440px; and up) ---- */
+  @media (min-width: 1440px) {
+    .gisele {
+      width: 817px;
+    }
+  }
+
+
+
+
+
