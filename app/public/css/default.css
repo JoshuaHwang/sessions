@@ -1,0 +1,181 @@
+/* COLOR 
+  white: #FEFEFE;
+  black: #2A23C0;
+  light-gray: #E2E7E5;
+  darker-gray: #7D9394;
+  gray: #A5A5A6;
+  red:  #E45864;
+*/
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: #FAFAFA;
+}
+.fold-background {
+  background:
+    linear-gradient(
+      rgba(47, 88, 145, 0.20),
+      rgba(47, 88, 145, 0.10)
+    ),
+    url('../../app/images/nike-fold.jpg');
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 350px;
+  z-index: -1;
+  -webkit-filter: brightness(45%);
+}
+#company {
+  color: #F2F2F2;
+  font-size: 30px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+.alarm-icon {
+  float: right;
+  margin-top: 10px;
+  border-right: 1px solid #A5A5A6;
+  padding-right: 10px;
+}
+.profile-picture {
+  border-radius: 100%;
+  float: right;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.profile-logo {
+  border-radius: 25%;
+  margin-top: 25px;
+  margin-bottom: -10px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+.user {
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 100;
+  letter-spacing: 3px;
+}
+.icons {
+  text-align: center;
+  margin-top: 15px;
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: space-between;
+}
+.heart-icon, .checkmark-icon, .user-icon {
+  border: solid 2px transparent;
+  border-radius: 100%;
+  padding: 5px;
+}
+.heart-icon:hover {
+  border-color: #E45864;
+  -webkit-transition: border-color .7s ease;
+}
+.checkmark-icon:hover {
+  border-color: #019FE9;
+  -webkit-transition: border-color .7s ease;
+}
+.user-icon:hover {
+  border-color: #14B876;
+  -webkit-transition: border-color .7s ease;
+}
+.heart-icon:focus, .checkmark-icon:focus, .user-icon:focus, .create-btn:focus {
+  outline: 0;
+}
+.dropbtn {
+  background-color: transparent;
+  color: #FEFEFE;
+  font-size: 17px;
+  font-weight: 200;
+  border: none;
+  cursor: pointer;
+  margin-top: -10px;
+  margin-left: 10px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #F9F9F9;
+  min-width: 160px;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a {
+  color: black;
+  font-size: 13px;
+  color: #A5A5A6;
+  padding: 5px 25px 5px 15px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.create-btn {
+  color: #FEFEFE;
+  background-color: #FF3366;
+  font-size: 17px;
+  font-weight: 200;
+  width: 100px;
+  border: 3px solid #FF3366;
+  border-radius: 28px;
+}
+#closeButton, #submitButton {
+  border-radius: 28px;
+}
+#submitButton {
+  background-color: #FF3366;
+  border-color: #FF3366;
+}
+#registerLabel {
+  font-size: 20px;
+  font-weight: 300;
+}
+label {
+  font-size: 17px;
+  font-weight: 200;
+}
+.file-button {
+  font-size: 15px;
+}
+.create-btn:hover, #submitButton:hover {
+  background-color: #E23863;
+  border-color: #E23863;
+}
+.sessions-container {
+  margin-top: 125px;
+}
+.flex-sessions {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.sessions {
+  width: 250px;
+  height: 250px;
+  margin-top: 15px;
+  margin-left: 3px;
+  margin-right: 3px;
+  float: left;
+}
+.filter-container {
+  margin-top: 85px;
+  margin-bottom: 40px;
+}
+

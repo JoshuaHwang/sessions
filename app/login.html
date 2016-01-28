@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="X-US-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <link href="app/css/login.css" type="text/css" rel="stylesheet">
+    <title>Sessions</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7  col-lg-7 hidden-xs hidden-sm">
+          <div class="login-fold">
+            <img src="app/images/underarmour.png" class="gisele" alt="Gisele underarmour ad">
+          </div>
+        </div>
+        <div class="col-md-5 col-lg-5 col-xs-9">
+          <div class="login-form">
+            <div id="company">
+              <h1 id="hook">Create your own session.</h1>
+            </div>
+            <form class="form" action="/login" method="POST">
+              <input type="text" class="form-control" id="username" placeholder="Username">
+              <input type="password" class="form-control" id="password" placeholder="Password">
+              <button type="submit" class="submit-btn btn btn-default">Log in</button>
+            </form>
+            <h2 id="register-hook">Don't have an account?</h2>
+            <a href="#" id="register">Register here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="hidden-xs hidden-sm footer">
+      </div>
+    </footer>
+  </body>
+</html>
