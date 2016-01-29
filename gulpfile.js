@@ -14,11 +14,11 @@ gulp.task('jade', function() {
   console.log('Running Jade');
   gulp.src('./template/**/*.jade')
     .pipe(jade())
-    .pipe(gulp.dest('./app/html'))
+    .pipe(gulp.dest('./app/views'))
 });
 
 gulp.task('watch', function () {
   gulp.watch('./template/**/*.jade', ['jade']);
 });
 
-gulp.task('default', ['jade','watch', 'nodemon']);
+gulp.task('default', ['jade', 'watch', 'nodemon']);
