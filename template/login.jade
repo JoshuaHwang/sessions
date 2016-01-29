@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title Sessions
+    script(src="http://code.jquery.com/jquery-2.1.4.min.js")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
+    link(href="public/css/login.css" type="text/css" rel="stylesheet")
+  body
+    img(src="public/images/gisele-header.jpg" class="gisele-header hidden-m hidden-lg" alt="Gisele underarmour ad header")
+    img(src="public/images/gisele.png" class="gisele hidden-xs hidden-sm" alt="Gisele underarmour ad")
+    div.container
+      div.row
+        div.col-md-5.col-lg-5.col-xs-9
+          div.login-form
+            div#company
+              h1#hook Create your own session.
+            form(class="form" action="/login" method="POST")
+              input(type="text" class="signup-form form-control" id="username" name="username" placeholder="Username")
+              input(type="password" class="signup-form form-control" id="password" name="password" placeholder="Password")
+              button(type="submit" class="submit-btn btn btn-default") Log in
+            h2#register-hook Don't have an account?
+            a(href="register.html" id="signUp") Sign up
+            hr.line
+    footer
+      div.footer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
