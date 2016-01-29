@@ -107,7 +107,7 @@ app.get('/failure', function(req, res) {
 });
 
 app.use('/success', function(req, res, next) {
-  if (req.user) {
+  if(req.user) {
     next();
   }
   else {

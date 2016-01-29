@@ -4,6 +4,9 @@ body {
 .gisele-header {
   width: 100%;
 }
+.register {
+  display: inline-block;
+}
 #hook {
   font-size: 40px;
   margin-bottom: 20px;
@@ -23,16 +26,6 @@ body {
   font-weight: 200;
   margin-bottom: 20px;
 }
-#signUp {
-  border: none;
-  background-color: transparent;
-  color: #3366BB;
-  font-size: 15px;
-  padding: 0px;
-}
-#signUp:focus {
-  outline: 0;
-}
 .line {
   margin-top: 50px; 
 }
@@ -49,6 +42,38 @@ body {
 }
 .footer {
   border-top: 2px solid #D3D3D3;
+}
+
+/* ----- REGISTER CSS -----*/
+.register-header {
+  background-color: #303030;
+  width: 100%;
+  height: 70px;
+  position: absolute;
+}
+#logo {
+  color: #FEFEFE;
+}
+#logIn, #logIn > a:link, #logIn > a:visited {
+  font-size: 20px;
+  padding-top: 30px;
+  text-decoration: none !important;
+  color: #FEFEFE !important;
+}
+#eatonHeader {
+  background-image: url('/public/images/eaton.jpg');
+  background-size: cover;
+  position: absolute;
+  -webkit-filter: brightness(85%);
+  width: 100%;
+  height: 500px;
+}
+.register {
+  margin-top: 50px;
+}
+#title {
+  color: white;
+  margin-bottom: 25px;
 }
 
 /* ---- Medium devices (desktops, 992px and up) ---- */
@@ -85,7 +110,7 @@ body {
 /* ---- Medium devices (desktops, 1280px; and up) ---- */
   @media (min-width: 1280px) {
     .gisele {
-      width: 738px;
+      width: 737px;
     }
   }
 
