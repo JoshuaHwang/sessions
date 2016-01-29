@@ -27,6 +27,7 @@
     "express-session": "^1.13.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
+    "gulp-jade": "^1.1.0",
     "gulp-mocha": "^2.2.0",
     "gulp-nodemon": "^2.0.6",
     "gulp-print": "^2.0.1",
