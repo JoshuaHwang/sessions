@@ -13,8 +13,8 @@ var LocalStrategy = passportLocal.Strategy;
 
 /* ----- LOGIN ----- */
 mongoose.connect('mongodb://localhost/users', function(err) {
-  if (err) throw err;
-  console.log('connected!');
+  if(err) throw err;
+  console.log('Connected to database!');
 });
 
 var Schema     = mongoose.Schema;
@@ -56,6 +56,8 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
+var app = express();
+
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true }));
 
 var initializer = passport.initialize();
@@ -67,31 +69,31 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 /* ----- ROUTES ----- */
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/login.html'));
+  res.sendFile(path.join(__dirname + '/views/login.html'));
 });
-
-var Account = require('./models/account');
 
 app.get('/register', function(req, res) {
-  res.render('register', { });
+  res.sendFile(path.join(__dirname + '/views/register.html'));
 });
 
-app.post('/register', function(req, res) {
+app.post('/register', urlParser, function(req, res) {
   var user = new User({
     email:    req.body.email,
     username: req.body.username,
     password: req.body.password
   });
+
   user.save(function(err) {
     if(err) {
       var err = 'Something bad happened, try again!';
       if(err.code === 11000) {
-        error = 'That email is already taken, try another.';
+        var error = 'That email is already taken, try another.';
       }
-      res.render('register', { error: error });
+      res.render('/views/register.html', { error: error });
+    } else {
+      res.redirect('/');
     }
-
-  })
+  });
 });
 
 app.post('/login', urlParser, passport.authenticate('local', {
@@ -101,7 +103,7 @@ app.post('/login', urlParser, passport.authenticate('local', {
 
 app.get('/failure', function(req, res) {
   console.log('login failed');
-  res.sendFile(path.join(__dirname + '/login.html'));
+  res.sendFile(path.join(__dirname + '/views/login.html'));
 });
 
 app.use('/success', function(req, res, next) {
@@ -115,7 +117,7 @@ app.use('/success', function(req, res, next) {
 
 app.get('/success', function(req, res) {
   console.log('Login successful');
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
 app.get('/logout', function(req, res) {
