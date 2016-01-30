@@ -164,7 +164,7 @@ body {
   background-color: #FF3366;
   border-color: #FF3366;
 }
-#registerLabel {
+#createLabel {
   font-size: 20px;
   font-weight: 300;
 }
@@ -188,14 +188,25 @@ label {
   justify-content: space-around;
 }
 .sessions {
+  list-style: none;
+  text-align: right;
   width: 250px;
-  height: 250px;
+  height: 280px;
   margin-top: 15px;
-  margin-left: 3px;
-  margin-right: 3px;
-  float: left;
+  margin-right: auto;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
 }
-
+.likes, .comments {
+  margin-right: 15px;
+  margin-top: 0px;
+  font-weight: 500;
+}
+.comment-icon {
+  margin-right: 3px;
+}
+.comment-icon, .like-icon {
+  margin-top: 4px;
+}
 /*---- SEARCH -----*/
 input {
   outline: none;
