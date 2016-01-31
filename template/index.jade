@@ -1,11 +1,12 @@
 doctype html
-html
+html(ng-app="sessionApp")
   head
     title Sessions
     script(src="http://code.jquery.com/jquery-2.1.4.min.js")
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
+    script(src="public/js/main.js")
     link(href="public/css/default.css" type="text/css" rel="stylesheet")
   body
     div.fold-background
@@ -60,40 +61,15 @@ html
                 div.modal-footer
                   button(type="button" id="closeButton" class="btn btn-default" data-dismiss="modal") Close
                   button(type="button" id="submitButton" class="btn btn-primary") Submit
-    div(ng-app="session")
-      ul(ng-controller="SeshController as sesh" class="flex-sessions")
-        li.sessions
-          img(src="public/images/vapor-untouchable-2.jpg" alt="Vapor untouchable 2")
+    div(ng-controller="SeshController as session")
+      ul(class="flex-sessions")
+        li(ng-repeat="submission in session.submissions" class="sessions")
+          img(ng-src="{{ submission.images }}")
           a(href="#")
             img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
-          span.comments {{ sesh.seshItem.comments }}
+          span.comments {{ submission.comments }}
           a(href="#")
             img(src="public/images/heart-icon.png" class="like-icon" alt="heart icon")
-          span.likes {{ sesh.seshItem.likes }}
-        li.sessions
-          img(src="public/images/air-max-1.jpg" alt="Air max 1")
-          a(href="#")
-            img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
-          span.comments 5
-          a(href="#")
-            img(src="public/images/heart-icon.png" class="like-icon" alt="heart icon")
-          span.likes 38
-        li.sessions
-          img(src="public/images/eqt-support.jpg" alt="EQT support")
-        li.sessions
-          img(src="public/images/internationalist-premium.jpg" alt="Internationalist premium")
-        li.sessions
-          img(src="public/images/pure-boost-1.jpg" alt="Pure boost 1")
-        li.sessions
-          img(src="public/images/free-20.jpg" alt="Free 20")
-        li.sessions
-          img(src="public/images/socfly-black.jpg" alt="Socfly black")
-        li.sessions
-          img(src="public/images/huarache-light-bone.jpg" alt="Huarache light bone")
-        li.sessions
-          img(src="public/images/yeezy-boost-350.jpg" alt="Yeezy boost 350")
-    script(src="controllers/sessions.controller.js")
-
-
-
+          span.likes {{ submission.likes }}
+        
 
