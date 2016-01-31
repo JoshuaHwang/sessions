@@ -61,9 +61,12 @@ html(ng-app="sessionApp")
                 div.modal-footer
                   button(type="button" id="closeButton" class="btn btn-default" data-dismiss="modal") Close
                   button(type="button" id="submitButton" class="btn btn-primary") Submit
-    div(ng-controller="SeshController as session")
-      ul(class="flex-sessions")
-        li(ng-repeat="submission in session.submissions" class="sessions")
+    div(ng-controller="SeshController as session" class="flex-sessions")
+      div(ng-repeat="submission in session.submissions" class="show-info")
+        div.session-info
+          p.submission-name {{ submission.name }}
+          p.describe {{ submission.description }}
+        div.sessions
           img(ng-src="{{ submission.images }}")
           a(href="#")
             img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
@@ -71,5 +74,8 @@ html(ng-app="sessionApp")
           a(href="#")
             img(src="public/images/heart-icon.png" class="like-icon" alt="heart icon")
           span.likes {{ submission.likes }}
+    br
+    br
+    br
         
 

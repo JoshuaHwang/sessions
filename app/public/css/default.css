@@ -187,26 +187,54 @@ label {
   flex-flow: row wrap;
   justify-content: space-around;
 }
+.session-info {
+  background: rgba(0, 0, 0, 0.8);
+  transition: opacity .2s;
+  opacity: 0;
+  color: #FEFEFE;
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  margin-top: 15px;
+  z-index: 1;
+} 
 .sessions {
-  list-style: none;
+  position: relative;
   text-align: right;
   width: 250px;
   height: 280px;
   margin-top: 15px;
-  margin-right: auto;
   box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
 }
-.likes, .comments {
-  margin-right: 15px;
-  margin-top: 0px;
-  font-weight: 500;
+.show-info:hover .session-info {
+  opacity: 1;
 }
-.comment-icon {
-  margin-right: 3px;
+.submission-name {
+  font-size: 20px;
+  font-weight: 200;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 7px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #FEFEFE;
+}
+.describe {
+  font-size: 14px;
+  font-weight: 200;
+}
+.submission-name, .describe {
+  margin-left: 5px;
 }
 .comment-icon, .like-icon {
   margin-top: 4px;
+  margin-right: 3px;
 }
+.likes, .comments {
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 15px;
+}
+
 /*---- SEARCH -----*/
 input {
   outline: none;
