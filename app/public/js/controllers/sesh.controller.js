@@ -1,18 +1,13 @@
 
-app.controller('SeshController', function() {
+app.controller('SeshController', function($http) {
   var vm = this;
 
-  vm.createSesh = function() {
-    vm.submissions.push({ 
-      name: vm.seshName,
-      description: vm.seshDescription
-    })
-  }
-
-  vm.submissions = theSessions;
+  $http.get('./public/submissions.json').success(function(data) {
+    vm.submissions = data;
+  })
 });
 
-var theSessions = [
+/*var theSessions = [
     {
       images:      'public/images/vapor-untouchable-2.jpg',
       name:        'Vapor Untouchable',
@@ -34,4 +29,4 @@ var theSessions = [
       likes:       387,
       comments:    12 
     }
-  ];
+  ];*/
