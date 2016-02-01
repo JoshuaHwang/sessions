@@ -37,14 +37,14 @@ html(ng-app="sessionApp")
           div.dropdown
             button.dropbtn Filter
             div.dropdown-content
-              a(href ng-click="tab(2)") Most liked
-              a(href ng-click="tab(3)") Most Comments
-              a(href ng-click="tab(4)") Name
+              a(href ng-click="sortType = 'likes'; sortReverse = !sortReverse") Most liked
+              a(href ng-click="sortType = 'comments'; sortReverse = !sortReverse") Most Comments
+              a(href ng-click="sortType = 'name'; sortReverse = !sortReverse") Name
         div.col-md-4.col-sm-4.col-xs-4
           button(type="button" class="create-btn" data-toggle="modal" data-target="#create") Create
                   
     div(class="flex-sessions")
-      div(ng-repeat="submission in session.submissions | filter:searchSubs | orderBy:sort" class="show-info")
+      div(ng-repeat="submission in session.submissions | filter:searchSubs | orderBy:sortType:sortReverse" class="show-info")
         div.session-info
           p.submission-name {{ submission.name }}
           p.describe {{ submission.description }}

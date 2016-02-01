@@ -96,7 +96,7 @@ body {
   border-color: #14B876;
   -webkit-transition: border-color .7s ease;
 }
-.heart-icon:focus, .checkmark-icon:focus, .user-icon:focus, .create-btn:focus {
+.heart-icon:focus, .checkmark-icon:focus, .user-icon:focus, .create-btn:focus, .dropbtn:focus {
   outline: 0;
 }
 .filter-container {
@@ -127,12 +127,12 @@ body {
 }
 .dropdown-content a {
   font-size: 13px;
-  color: #7D9394;
+  color: #757575;
   padding: 5px 25px 5px 15px;
   text-decoration: none;
   display: block;
 }
-.dropdown-content a:hover {
+.dropdown-content a:hover, .dropdown-content a:focus {
   background-color: #f1f1f1
 }
 .dropdown:hover .dropdown-content {
@@ -237,6 +237,7 @@ label {
 .likes, .comments {
   font-size: 13px;
   font-weight: 500;
+  color: #8D8D8D;
   margin-right: 15px;
 }
 .session-comments {
