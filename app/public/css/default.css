@@ -13,7 +13,7 @@ html, body {
   padding: 0px;
 }
 body {
-  background-color: #FAFAFA;
+  background-color: #F4F4F4;
 }
 .fold-background {
   background:
@@ -188,23 +188,28 @@ label {
   justify-content: space-around;
 }
 .session-info {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.65);
   transition: opacity .2s;
   opacity: 0;
   color: #FEFEFE;
   position: absolute;
   width: 250px;
   height: 250px;
-  margin-top: 15px;
+  margin-top: 25px;
+  margin-left: 10px;
   z-index: 1;
 } 
+.subImage {
+  margin-top: 10px;
+  margin-right: 10px;
+}
 .sessions {
   position: relative;
   text-align: right;
-  width: 250px;
-  height: 280px;
+  width: 270px;
+  height: 290px;
   margin-top: 15px;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.3);
 }
 .show-info:hover .session-info {
   opacity: 1;
@@ -243,7 +248,7 @@ label {
 .session-comments p {
   font-size: 12px;
   margin-left: 2px;
-  border-bottom: 1px solid #F4F4F4;
+  border-bottom: 1px solid #CACACA;
 }
 
 /*---- SEARCH -----*/
