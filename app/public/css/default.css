@@ -241,15 +241,27 @@ label {
   margin-right: 15px;
 }
 .session-comments {
-  width: 250px;
+  width: 270px;
   height: 225px;
   box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
-.session-comments p {
+.session-comments:hover {
+  overflow-y: scroll;
+  -webkit-transition: .7s ease;
+}
+.chatter {
+  font-size: 12px;
+  font-weight: 500;
+  color: #0170A8;
+  margin-left: 2px;
+  margin-right: 3px;
+  float: left;
+}
+.chat {
   font-size: 12px;
   margin-left: 2px;
-  border-bottom: 1px solid #CACACA;
+  margin-top: 1px;
 }
 
 /*---- SEARCH -----*/
