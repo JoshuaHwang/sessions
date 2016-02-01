@@ -8,7 +8,7 @@ html(ng-app="sessionApp")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
     script(src="public/all.js")
     link(href="public/css/default.css" type="text/css" rel="stylesheet")
-  body
+  body(ng-controller="SeshController as session")
     div.fold-background
     div.container
       div.row
@@ -28,23 +28,23 @@ html(ng-app="sessionApp")
           input(type="image" class="checkmark-icon" src="public/images/checkmark-icon.png" alt="Checkmark icon")
           input(type="image" class="user-icon" src="public/images/user-icon.png" alt="User icon")
     div.filter-container.container
-      div(class="row" ng-controller="SeshController as session")
+      div(class="row")
         div.col-md-4.col-sm-4.col-xs-4
           div.search
             form#searchBar
-              input(type="text" class="search-input" ng-model="searchSubs")
+              input(type="text" class="search-input" ng-model="searchSubs.name")
         div.col-md-4.col-sm-4.col-xs-4
           div.dropdown
             button.dropbtn Filter
             div.dropdown-content
-              a(href="#" ng-click="sortType='likes' && sortReverse") Most liked
-              a(href="#" ng-click="sortType='comments' && sortReverse") Most Comments
-              a(href="#" ng-click="sortType='name' && sortReverse") Name
+              a(href ng-click="tab(2)") Most liked
+              a(href ng-click="tab(3)") Most Comments
+              a(href ng-click="tab(4)") Name
         div.col-md-4.col-sm-4.col-xs-4
           button(type="button" class="create-btn" data-toggle="modal" data-target="#create") Create
                   
-    div(ng-controller="SeshController as session" class="flex-sessions")
-      div(ng-repeat="submission in session.submissions | orderBy:'-likes' | filter:searchSubs" class="show-info")
+    div(class="flex-sessions")
+      div(ng-repeat="submission in session.submissions | filter:searchSubs | orderBy:sort" class="show-info")
         div.session-info
           p.submission-name {{ submission.name }}
           p.describe {{ submission.description }}
@@ -61,11 +61,11 @@ html(ng-app="sessionApp")
           p c'mon everyone like this so it can get made!!!
           p love it!
           p how much will they be on drop, anyone know?
-          p blah blah blah
-          p yo yo yo blah this product is blah
-          p blah blah blah
-          p blah blah blah
-          p yo yo yo blah this product is blah
+          p these are firee
+          p wow!
+          p let's gooo you're killen the game
+          p let me know when these drop fam
+          p omg!!
           p blah blah blah
           p blah blah blah
           p yo yo yo blah this product is blah
