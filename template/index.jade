@@ -6,7 +6,7 @@ html(ng-app="sessionApp")
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
-    script(src="public/js/main.js")
+    script(src="public/all.js")
     link(href="public/css/default.css" type="text/css" rel="stylesheet")
   body
     div.fold-background
@@ -28,54 +28,69 @@ html(ng-app="sessionApp")
           input(type="image" class="checkmark-icon" src="public/images/checkmark-icon.png" alt="Checkmark icon")
           input(type="image" class="user-icon" src="public/images/user-icon.png" alt="User icon")
     div.filter-container.container
-      div.row
+      div(class="row" ng-controller="SeshController as session")
         div.col-md-4.col-sm-4.col-xs-4
           div.search
             form#searchBar
-              input(type="search" class="search-input")
+              input(type="text" class="search-input" ng-model="searchSubs")
         div.col-md-4.col-sm-4.col-xs-4
           div.dropdown
-            button.dropbtn Popular
+            button.dropbtn Filter
             div.dropdown-content
-              a(href="#") Most liked
-              a(href="#") Newest
-              a(href="#") Oldest
+              a(href="#" ng-click="sortType='likes' && sortReverse") Most liked
+              a(href="#" ng-click="sortType='comments' && sortReverse") Most Comments
+              a(href="#" ng-click="sortType='name' && sortReverse") Name
         div.col-md-4.col-sm-4.col-xs-4
           button(type="button" class="create-btn" data-toggle="modal" data-target="#create") Create
-          // Modal for sign up
-          div(class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="createLabel")
-            div(class="modal-dialog" role="document")
-              div.modal-content
-                div.modal-header
-                  button(type="button" class="close" data-dismiss="modal" aria-label="Close") #[span(aria-hidden="true") &times;]
-                  h4#createLabel.modal-title Upload a session.
-                div.modal-body
-                  form(id="uploadSession" class="form" action="/upload" method="POST")
-                    label(for="sessionTitle") Title:
-                    input(type="text" class="form-control" id="sessionTitle" placeholder="Session title")
-                    br
-                    label(for="sessionDescription") Description:
-                    textarea(class="form-control" id="sessionDescription" rows="3" placeholder="Type session description here..")
-                    br
-                    input(type="file" class="file-button" file-model="myFile")
-                div.modal-footer
-                  button(type="button" id="closeButton" class="btn btn-default" data-dismiss="modal") Close
-                  button(type="button" id="submitButton" class="btn btn-primary") Submit
+                  
     div(ng-controller="SeshController as session" class="flex-sessions")
-      div(ng-repeat="submission in session.submissions" class="show-info")
+      div(ng-repeat="submission in session.submissions | orderBy:'-likes' | filter:searchSubs" class="show-info")
         div.session-info
           p.submission-name {{ submission.name }}
           p.describe {{ submission.description }}
         div.sessions
           img(ng-src="{{ submission.images }}")
-          a(href="#")
+          a(href ng-class="{ active:tab === 1 }" ng-click="tab = tab == 1 ? null: 1")
             img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
           span.comments {{ submission.comments }}
-          a(href="#")
+          a(href)
             img(src="public/images/heart-icon.png" class="like-icon" alt="heart icon")
           span.likes {{ submission.likes }}
-    br
-    br
-    br
-        
-
+        div(class="session-comments" ng-show="tab === 1")
+          p this is lit
+          p c'mon everyone like this so it can get made!!!
+          p love it!
+          p how much will they be on drop, anyone know?
+          p blah blah blah
+          p yo yo yo blah this product is blah
+          p blah blah blah
+          p blah blah blah
+          p yo yo yo blah this product is blah
+          p blah blah blah
+          p blah blah blah
+          p yo yo yo blah this product is blah
+          p blah blah blah
+          p blah blah blah
+          p yo yo yo blah this product is blah
+          p blah blah blah
+          p blah blah blah
+          p yo yo yo blah this product is blah
+  br
+  // Modal for sign up
+  div(class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="createLabel")
+    div(class="modal-dialog" role="document")
+      div.modal-content
+        div.modal-header
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close") #[span(aria-hidden="true") &times;]
+          h4#createLabel.modal-title Upload a session.
+        div(class="modal-body" ng-controller="createController")
+          form(id="uploadSession" enctype="multipart/form-data" class="form" action="/upload" method="POST")
+            label(for="sessionTitle") Title:
+            input(type="text" class="form-control" id="sessionTitle" name="name" placeholder="Session title" ng-model="seshTitle")
+            br
+            label(for="sessionDescription") Description:
+            textarea(class="form-control" id="sessionDescription" rows="3" name="description" placeholder="Type session description here.." ng-model="seshDescription")
+            br
+            input(type="file" class="file-button" name="image" file-model="myFile")
+            button(type="submit" id="submitButton" class="btn btn-primary" ng-click="Submit()") Submit
+            button(type="button" id="closeButton" class="btn btn-default" data-dismiss="modal") Close
