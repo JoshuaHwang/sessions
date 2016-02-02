@@ -60,9 +60,29 @@ html(ng-app="sessionApp")
           div(ng-repeat="chat in submission.chats")
             span.chatter {{ chat.author }}
             p.chat {{ chat.body }}
-    footer
+    footer.footer.container
       div.row
         hr
+        div.col-md-4.col-sm-4.col-xs-4.footies
+          h4 Technologies
+          p MongoDb
+          p Angular
+          p Express
+          p Node
+        div.col-md-4.col-sm-4.col-xs-4.footies
+          h4 Authored By
+          p Joshua Hwang
+          p joshchwang@gmail.com
+        div.col-md-4.footies
+          a(href="#")
+            img(src="public/images/facebook.png" class="social")
+          a(href="#")
+            img(src="public/images/instagram.png" class="social")
+          a(href="#")
+            img(src="public/images/twitter.png" class="social")
+          a(href="#")
+            img(src="public/images/linkedin.png" class="social")
+
   br
   // Modal for sign up
   div(class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="createLabel")
@@ -81,5 +101,5 @@ html(ng-app="sessionApp")
             br
             input(type="text" class="form-control" name="image" placeholder="input image path here...")
             br
-            button(type="submit" id="submitButton" class="btn btn-primary" ng-click="Submit()") Submit
+            button(type="submit" id="submitButton" class="btn btn-primary") Submit
             button(type="button" id="closeButton" class="btn btn-default" data-dismiss="modal") Close

@@ -96,7 +96,13 @@ body {
   border-color: #14B876;
   -webkit-transition: border-color .7s ease;
 }
-.heart-icon:focus, .checkmark-icon:focus, .user-icon:focus, .create-btn:focus, .dropbtn:focus {
+.heart-icon:focus,
+.checkmark-icon:focus,
+.user-icon:focus,
+.create-btn:focus, 
+.dropbtn:focus,
+#closeButton, 
+#submitButton {
   outline: 0;
 }
 .filter-container {
@@ -163,14 +169,15 @@ body {
 #submitButton {
   background-color: #FF3366;
   border-color: #FF3366;
+  margin-right: 10px;
 }
 #createLabel {
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 25px;
+  font-weight: 400;
 }
 label {
   font-size: 17px;
-  font-weight: 200;
+  font-weight: 400;
 }
 .file-button {
   font-size: 15px;
@@ -191,7 +198,7 @@ label {
   background: rgba(0, 0, 0, 0.65);
   transition: opacity .2s;
   opacity: 0;
-  color: #FEFEFE;
+  color: #F2F2F2;
   position: absolute;
   width: 250px;
   height: 250px;
@@ -221,7 +228,6 @@ label {
   margin-top: 10px;
   margin-bottom: 7px;
   padding-bottom: 3px;
-  border-bottom: 1px solid #FEFEFE;
 }
 .describe {
   font-size: 14px;
@@ -243,7 +249,7 @@ label {
 .session-comments {
   width: 270px;
   height: 225px;
-  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.3);
   overflow-y: hidden;
 }
 .session-comments:hover {
@@ -262,6 +268,21 @@ label {
   font-size: 12px;
   margin-left: 2px;
   margin-top: 1px;
+}
+hr {
+  margin-bottom: 30px;
+}
+.footer {
+  margin-top: 20px;
+}
+.footies {
+  color: #707070;
+}
+.social {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
 }
 
 /*---- SEARCH -----*/
