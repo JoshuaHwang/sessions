@@ -38,7 +38,7 @@ html(ng-app="sessionApp")
             button.dropbtn Filter
             div.dropdown-content
               a(href ng-click="sortType = 'likes'; sortReverse = !sortReverse") Most liked
-              a(href ng-click="sortType = 'comments'; sortReverse = !sortReverse") Most Comments
+              a(href ng-click="sortType = 'comments'") Most Comments
               a(href ng-click="sortType = 'name'; sortReverse = !sortReverse") Name
         div.col-md-4.col-sm-4.col-xs-4
           button(type="button" class="create-btn" data-toggle="modal" data-target="#create") Create
@@ -53,30 +53,16 @@ html(ng-app="sessionApp")
           a(href ng-class="{ active:tab === 1 }" ng-click="tab = tab == 1 ? null: 1")
             img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
           span.comments {{ submission.comments }}
-          a(href)
+          a(href ng-click="likeClick()")
             img(src="public/images/heart-icon.png" class="like-icon" alt="heart icon")
           span.likes {{ submission.likes }}
         div(class="session-comments" ng-show="tab === 1")
-          span.chatter KobeBryant
-          p.chat this is lit
-          span.chatter Drizzy
-          p.chat c'mon everyone like this so it can get made!!!
-          span.chatter Obama_Cares
-          p.chat love it!
-          span.chatter realDonaldTrump
-          p.chat how much will they be on drop, anyone know?
-          span.chatter Zuckerberggg
-          p.chat these are firee
-          span.chatter Mr.BillGates
-          p.chat wow!
-          span.chatter Cookin_Tim
-          p.chat let's gooo you're killen the game
-          span.chatter Tom
-          p.chat let me know when these drop fam
-          span.chatter NBA
-          p.chat omg!!
-          span.chatter KimKardashian
-          p.chat blah blah blah
+          div(ng-repeat="chat in submission.chats")
+            span.chatter {{ chat.author }}
+            p.chat {{ chat.body }}
+    footer
+      div.row
+        hr
   br
   // Modal for sign up
   div(class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="createLabel")
@@ -86,13 +72,14 @@ html(ng-app="sessionApp")
           button(type="button" class="close" data-dismiss="modal" aria-label="Close") #[span(aria-hidden="true") &times;]
           h4#createLabel.modal-title Upload a session.
         div(class="modal-body" ng-controller="createController")
-          form(id="uploadSession" enctype="multipart/form-data" class="form" action="/upload" method="POST")
+          form(id="uploadSession" class="form" action="/upload" method="POST")
             label(for="sessionTitle") Title:
             input(type="text" class="form-control" id="sessionTitle" name="name" placeholder="Session title" ng-model="seshTitle")
             br
             label(for="sessionDescription") Description:
             textarea(class="form-control" id="sessionDescription" rows="3" name="description" placeholder="Type session description here.." ng-model="seshDescription")
             br
-            input(type="file" class="file-button" name="image" file-model="myFile")
+            input(type="text" class="form-control" name="image" placeholder="input image path here...")
+            br
             button(type="submit" id="submitButton" class="btn btn-primary" ng-click="Submit()") Submit
             button(type="button" id="closeButton" class="btn btn-default" data-dismiss="modal") Close

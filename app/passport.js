@@ -14,7 +14,7 @@ var LocalStrategy = passportLocal.Strategy;
 /* ----- LOGIN ----- */
 mongoose.connect('mongodb://localhost/users', function(err) {
   if(err) throw err;
-  console.log('Connected to database!');
+  console.log('Connected to users database!');
 });
 
 var Schema     = mongoose.Schema;
@@ -23,6 +23,36 @@ var userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true }
 });
+
+var Schema           = mongoose.Schema;
+var submissionSchema = new Schema({
+  image:       { type: String, required: true, unique: true },
+  name:        { type: String, required: true, unique: true },
+  description: { type: String, required: true, unique: true },
+  likes:       { type: Number, default: 0 },
+  comments:    { type: Number, default: 0 },
+  chats: [
+    {
+      author: { type: String },
+      body:   { type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }
+    }
+  ]
+});
+
+mongoose.model('Submission', submissionSchema);
+var Submission = mongoose.model('Submission');
+
+/*var premium = new Submission({
+  image:       "./public/images/safari.jpg",
+  name:        "Safari",
+  description: "The Nike Safari has an iconic look inspired by vintage Nike running styles with a low-profile, combination upper and a rubber Waffle outsole"
+});
+
+premium.save(function(err) {
+  if(err) throw err;
+
+  console.log('Yeezy created!');
+});*/
 
 mongoose.model('User', userSchema);
 var User = mongoose.model('User');
@@ -45,13 +75,13 @@ var strategy = new LocalStrategy(function(username, password, done) {
 passport.use(strategy);
 
 passport.serializeUser(function(user, done) {
-  console.log(user);
+  console.log(user.username);
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
   User.findById(id, function(err, user) {
-    console.log(user);
+    console.log(user.username);
     done(err, user);
   });
 });
@@ -68,6 +98,19 @@ router.use('/public', express.static(path.join(__dirname, 'public')));
 /* ----- ROUTES ----- */
 router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/../app/views/login.html'));
+});
+
+router.post('/upload', function(req, res) {
+  var submission = new Submission({
+    image:       req.body.image,
+    name:        req.body.name,
+    description: req.body.description
+  });
+  submission.save(function(err) {
+
+    console.log('Session submitted!');
+    res.redirect('/success');
+  });
 });
 
 router.get('/register', function(req, res) {
