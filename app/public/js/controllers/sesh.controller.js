@@ -4,7 +4,7 @@ app.controller('SeshController', ['$http', function($http) {
 
   $http({
     method: 'GET',
-    url: '/users'
+    url: '/users/submissions'
   })
   .success(function(data) {
     vm.submissions = data;
