@@ -12,10 +12,6 @@ var urlParser     = bodyParser.urlencoded({ extended: true });
 var LocalStrategy = passportLocal.Strategy;
 
 /* ----- LOGIN ----- */
-mongoose.connect('mongodb://localhost/users', function(err) {
-  if(err) throw err;
-  console.log('Connected to users database!');
-});
 
 var Schema     = mongoose.Schema;
 var userSchema = new Schema({
@@ -41,18 +37,6 @@ var submissionSchema = new Schema({
 
 mongoose.model('Submission', submissionSchema);
 var Submission = mongoose.model('Submission');
-
-/*var premium = new Submission({
-  image:       "./public/images/safari.jpg",
-  name:        "Safari",
-  description: "The Nike Safari has an iconic look inspired by vintage Nike running styles with a low-profile, combination upper and a rubber Waffle outsole"
-});
-
-premium.save(function(err) {
-  if(err) throw err;
-
-  console.log('Yeezy created!');
-});*/
 
 mongoose.model('User', userSchema);
 var User = mongoose.model('User');
@@ -100,16 +84,26 @@ router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/../app/views/login.html'));
 });
 
-router.post('/upload', function(req, res) {
+router.get('/users/submissions', function(req, res) {
+  Submission.find({}, function(err, data) {
+    if(err) throw err;
+    res.send(data);
+  });
+});
+
+router.post('/upload', urlParser, function(req, res) {
   var submission = new Submission({
     image:       req.body.image,
     name:        req.body.name,
     description: req.body.description
   });
   submission.save(function(err) {
-
-    console.log('Session submitted!');
-    res.redirect('/success');
+    if(err) {
+      console.log(err)
+    } else {
+      console.log('Session submitted!');
+      res.redirect('/success');
+    }
   });
 });
 

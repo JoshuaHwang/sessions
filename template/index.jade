@@ -6,6 +6,7 @@ html(ng-app="sessionApp")
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.min.js")
     script(src="public/all.js")
     link(href="public/css/default.css" type="text/css" rel="stylesheet")
   body(ng-controller="SeshController as session")
@@ -49,7 +50,7 @@ html(ng-app="sessionApp")
           p.submission-name {{ submission.name }}
           p.describe {{ submission.description }}
         div.sessions
-          img(ng-src="{{ submission.images }}" class="subImage")
+          img(ng-src="{{ submission.image }}" class="subImage")
           a(href ng-class="{ active:tab === 1 }" ng-click="tab = tab == 1 ? null: 1")
             img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
           span.comments {{ submission.comments }}
@@ -66,8 +67,8 @@ html(ng-app="sessionApp")
         div.col-md-4.col-sm-4.col-xs-4.footies
           h4 Technologies
           p MongoDb
-          p Angular
           p Express
+          p Angular
           p Node
         div.col-md-4.col-sm-4.col-xs-4.footies
           h4 Authored By
@@ -80,7 +81,7 @@ html(ng-app="sessionApp")
             img(src="public/images/instagram.png" class="social")
           a(href="#")
             img(src="public/images/twitter.png" class="social")
-          a(href="#")
+          a(href="https://www.linkedin.com/in/joshua-hwang-5a6384ba")
             img(src="public/images/linkedin.png" class="social")
 
   br
@@ -91,7 +92,7 @@ html(ng-app="sessionApp")
         div.modal-header
           button(type="button" class="close" data-dismiss="modal" aria-label="Close") #[span(aria-hidden="true") &times;]
           h4#createLabel.modal-title Upload a session.
-        div(class="modal-body" ng-controller="createController")
+        div(class="modal-body")
           form(id="uploadSession" class="form" action="/upload" method="POST")
             label(for="sessionTitle") Title:
             input(type="text" class="form-control" id="sessionTitle" name="name" placeholder="Session title" ng-model="seshTitle")

@@ -5,25 +5,21 @@ var passport      = require('passport');
 var passportLocal = require('passport-local');
 var session       = require('express-session');
 var mongoose      = require('mongoose');
-var multer        = require('multer');
 
 var app = express();
 
-app.use(bodyParser());
-app.use('/', require('./passport.js'));
-
-app.get('/users', function(req, res) {
-  res.send('Submissions API');
+var db = mongoose.connect('mongodb://localhost/users/', function(err) {
+  if(err) throw err;
+  console.log('Connected to users database!');
 });
 
-/*var upload = multer({ dest: './uploads/' });
+app.use(bodyParser.json());
+app.use('/', require('./passport.js'));
 
-app.post('/upload', multer({ dest: './uploads/' }).single('image'), function(req,res){
-  console.log(req.body);
-  console.log(req.file);
-  
-  res.status(204).end();
-});*/
+app.use(function(req, res, next) {
+  req.db = db;
+  next();
+});
 
 var server = require('http').createServer(app);
 
