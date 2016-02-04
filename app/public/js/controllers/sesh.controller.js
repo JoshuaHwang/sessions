@@ -8,10 +8,23 @@ app.controller('SeshController', ['$http', function($http) {
   })
   .success(function(data) {
     vm.submissions = data;
-    console.log(data);
   })
   .error(function(data) {
-    console.log('error');
+    console.log('Error ' + data);
   });
 
+  vm.deleteSesh = function() {
+    $http({
+      method: 'DELETE', 
+      url: '/users/submissions',
+    })
+    .success(function(data) {
+      vm.submissions = data;
+      vm.submissions.splice(data, 1);
+      console.log(data);
+    })
+    .error(function(data) {
+      console.log('Error: ' + data);
+    });
+  }
 }]);

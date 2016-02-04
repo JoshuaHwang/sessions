@@ -91,6 +91,14 @@ router.get('/users/submissions', function(req, res) {
   });
 });
 
+router.delete('/users/submissions/:submissions_id', urlParser, function(req, res) {
+  Submission.remove({ _id: req.params.submissions_id }, function(err, data) {
+    if(err) throw err;
+    res.send(data);
+    console.log('Deleted session!');
+  });
+});
+
 router.post('/upload', urlParser, function(req, res) {
   var submission = new Submission({
     image:       req.body.image,
