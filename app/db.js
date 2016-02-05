@@ -101,12 +101,16 @@ router.delete('/users/submissions/:submissions_id', function(req, res) {
   });
 });
 
-// router.get('/users/submissions/:submissions_id/likes', function(req, res) {
-//   Submission.update({ _id: req.params.submissions_id}, { $inc: { likes: 1 }}), function(err, data) {
-//     if(err) throw err;
-//     res.send(data);
-//   }
-// })
+router.get('/users/submissions/:submissions_id/likes', function(req, res) {
+  Submission.update({ _id: req.params.submissions_id }, { $inc: { likes: 1 } }, function(err, data) {
+    if(err) {
+      console.log(err)
+    } else {
+      res.send(data);
+      console.log('liked!');
+    }  
+  });
+});
 
 router.post('/upload', urlParser, function(req, res) {
   var submission = new Submission({

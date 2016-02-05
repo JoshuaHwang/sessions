@@ -25,4 +25,11 @@ app.controller('SeshController', ['$http', '$window', function($http, $window) {
       console.log('Error ' + data);
     })
   }
+
+  vm.likeClick = function(id) {
+   $http({
+      method: 'GET',
+      url:    '/users/submissions/' + id + '/likes'
+    })
+  }
 }]);
