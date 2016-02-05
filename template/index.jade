@@ -22,7 +22,7 @@ html(ng-app="sessionApp")
       div.row
         div.col-md-8.col-md-offset-2
           img(src="public/images/nike-logo.jpg" alt="Profile logo" class="profile-logo")
-          h1.user Nike
+          h1.user Yeezus
       div.row
         div.icons.col-md-6.col-md-offset-3.col-xs-8.col-xs-offset-2
           input(type="image" class="heart-icon" src="public/images/heart-filled-icon.png" alt="Heart icon")
@@ -51,8 +51,8 @@ html(ng-app="sessionApp")
           p.describe {{ submission.description }}
         div.sessions
           img(ng-src="{{ submission.image }}" class="subImage")
-          a(href ng-click="deleteSesh(submission._id)")
-            img(src="public/images/x.png" class="delete")
+          a(href ng-click="session.deleteSesh(submission._id)")
+            img(src="public/images/x.png" class="delete" alt="Delete icon")
           a(href ng-class="{ active:tab === 1 }" ng-click="tab = tab == 1 ? null: 1")
             img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
           span.comments {{ submission.comments }}

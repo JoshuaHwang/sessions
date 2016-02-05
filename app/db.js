@@ -12,7 +12,6 @@ var urlParser     = bodyParser.urlencoded({ extended: true });
 var LocalStrategy = passportLocal.Strategy;
 
 /* ----- LOGIN ----- */
-
 var Schema     = mongoose.Schema;
 var userSchema = new Schema({
   email:    { type: String, required: true, unique: true },
@@ -91,7 +90,7 @@ router.get('/users/submissions', function(req, res) {
   });
 });
 
-router.delete('/users/submissions/:submissions_id', urlParser, function(req, res) {
+router.delete('/users/submissions/:submissions_id', function(req, res) {
   Submission.remove({ _id: req.params.submissions_id }, function(err, data) {
     if(err) throw err;
     res.send(data);
@@ -99,12 +98,20 @@ router.delete('/users/submissions/:submissions_id', urlParser, function(req, res
   });
 });
 
+// router.get('/users/submissions/:submissions_id/likes', function(req, res) {
+//   Submission.update({ _id: req.params.submissions_id}, { $inc: { likes: 1 }}), function(err, data) {
+//     if(err) throw err;
+//     res.send(data);
+//   }
+// })
+
 router.post('/upload', urlParser, function(req, res) {
   var submission = new Submission({
     image:       req.body.image,
     name:        req.body.name,
     description: req.body.description
   });
+
   submission.save(function(err) {
     if(err) {
       console.log(err)
