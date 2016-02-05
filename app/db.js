@@ -92,9 +92,12 @@ router.get('/users/submissions', function(req, res) {
 
 router.delete('/users/submissions/:submissions_id', function(req, res) {
   Submission.remove({ _id: req.params.submissions_id }, function(err, data) {
-    if(err) throw err;
-    res.send(data);
-    console.log('Deleted session!');
+    if(err) {
+      console.log(err)
+    } else {
+      res.send(data);
+      console.log('Session deleted!');
+    }  
   });
 });
 

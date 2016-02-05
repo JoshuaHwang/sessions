@@ -14,12 +14,7 @@ var db = mongoose.connect('mongodb://localhost/users/', function(err) {
 });
 
 app.use(bodyParser.json());
-app.use('/', require('./passport.js'));
-
-app.use(function(req, res, next) {
-  req.db = db;
-  next();
-});
+app.use('/', require('./db.js'));
 
 var server = require('http').createServer(app);
 
