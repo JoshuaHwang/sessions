@@ -1,5 +1,5 @@
 
-app.controller('SeshController', ['$http', function($http) {
+app.controller('SeshController', ['$http', '$scope', '$filter', function($http, $scope, $filter) {
   var vm = this;  
 
   $http({
@@ -17,17 +17,8 @@ app.controller('SeshController', ['$http', function($http) {
     $http({
       method: 'DELETE',
       url:    '/users/submissions/' + id
-    })
-    .success(function(data) {
-      vm.submissions = data;
-      vm.submissions.delete(id);
-    })
-    .error(function(data) {
-      console.log('Error ' + data);
     });
-  };
-
-
+  }
   // vm.deleteSesh = function(id) {
   //   $http.delete('/users/submissions/' + id)
   //     .success(function(data) {

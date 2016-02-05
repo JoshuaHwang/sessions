@@ -56,7 +56,7 @@ html(ng-app="sessionApp")
           a(href ng-class="{ active:tab === 1 }" ng-click="tab = tab == 1 ? null: 1")
             img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
           span.comments {{ submission.comments }}
-          a(href ng-click="likeClick()")
+          a(href ng-click="session.likeClick(submission._id)")
             img(src="public/images/heart-icon.png" class="like-icon" alt="heart icon")
           span.likes {{ submission.likes }}
         div(class="session-comments" ng-show="tab === 1")
