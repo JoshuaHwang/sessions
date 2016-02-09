@@ -1,11 +1,12 @@
 # Sessions
-A websites that provides an opportunity for fashion artists to get their work created
+A websites that provides fashion artists an opportunity to get their work created
 
 #### Built with the following technologies
+- Mongodb
 - Angular.js
-- Node.js
+- Node.js (Express)
 - Passport.js
-- HTML5, CSS3, Bootstrap
+- HTML5 (Jade), CSS3, Bootstrap
 
 #### Sessions landing page
-![Sessions landing page](https://github.com/JoshuaHwang/sessions/blob/master/app/public/images/sessions-full.png)
+![Sessions landing page](https://github.com/JoshuaHwang/sessions/blob/master/app/public/images/sessions-landing.png)
