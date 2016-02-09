@@ -18,5 +18,7 @@ app.use('/', require('./db.js'));
 
 var server = require('http').createServer(app);
 
-server.listen(3000);
+var port = Number(process.env.PORT || 3000);
+
+server.listen(port);
 console.log('3000 is the magic port!');
