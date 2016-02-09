@@ -10,10 +10,14 @@ html
   body#signUpBod
     div.container
       div.row
+        div.col-md-4
+          h2#logo Sessions
+    div.container
+      div.row
         div.col-md-6.col-md-offset-3
           div.login-form
             div#company
-              h1#hook Create your own session.
+              h1#hook Create your own.
             form(class="form" action="/login" method="POST")
               input(type="text" class="signup-form form-control" id="username" name="username" placeholder="Username")
               input(type="password" class="signup-form form-control" id="password" name="password" placeholder="Password")

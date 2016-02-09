@@ -1,23 +1,27 @@
+/* ----- LOGIN CSS ----- */
 #signUpBod {
   background: #B993D6; 
   background: -webkit-linear-gradient(to left, #B993D6, #8CA6DB); 
   background: linear-gradient(to left, #B993D6, #8CA6DB); 
 }
-.login-form {
+#logo {
+  color: #F4F4F4;
+}
+.login-form, .register {
   width: 350px;
   height: 350px;
   text-align: center;
   border-radius: 1%;
-  margin-top: 150px;
+  margin-top: 100px;
   margin-right: auto;
   margin-left: auto;
 }
-#hook {
+#hook, #title {
   color: #F4F4F4;
   font-weight: 200;
   margin-bottom: 15px;
 }
-.signup-form {
+.signup-form, .register-form {
   background-color: transparent;
   width: 300px;
   margin-bottom: 10px;
@@ -29,20 +33,27 @@
   border-bottom: 1px solid #F4F4F4;
   border-radius: 0px;
 }
-.signup-form:focus {
-  outline: none;
-}
-.signup-form::-webkit-input-placeholder {
+.signup-form::-webkit-input-placeholder,
+.register-form::-webkit-input-placeholder,
+.signup-form[type=text],
+.signup-form[type=password],
+.register-form[type=email],
+.register-form[type=text],
+.register-form[type=password] {
   color: #F4F4F4;
 }
-.submit-btn {
+.submit-btn, .register-btn {
   background-color: rgba(21, 21, 21, .20);
   color: #F4F4F4;
   border-color: transparent;
   width: 300px;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
-.submit-btn:focus, .submit-btn:hover {
+.submit-btn:focus,
+.submit-btn:hover,
+.register:focus,
+.register-btn:hover {
   background-color: transparent;
   color: #DDD;
   border-color: #DDD;
@@ -75,4 +86,11 @@ a:hover {
   width: 40px;
   margin-right: 10px;
   margin-bottom: 5px;
+}
+
+/* ----- REGISTER CSS ----- */
+#registerBod {
+  background: #d53369;
+  background: -webkit-linear-gradient(to left, #d53369, #cbad6d);
+  background: linear-gradient(to left, #d53369, #cbad6d); 
 }
