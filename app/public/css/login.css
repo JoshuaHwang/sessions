@@ -1,122 +1,78 @@
-body {
-  background-color: #FAFAFA;
+#signUpBod {
+  background: #B993D6; 
+  background: -webkit-linear-gradient(to left, #B993D6, #8CA6DB); 
+  background: linear-gradient(to left, #B993D6, #8CA6DB); 
 }
-.gisele-header {
-  width: 100%;
-}
-.register {
-  display: inline-block;
+.login-form {
+  width: 350px;
+  height: 350px;
+  text-align: center;
+  border-radius: 1%;
+  margin-top: 150px;
+  margin-right: auto;
+  margin-left: auto;
 }
 #hook {
-  font-size: 40px;
-  margin-bottom: 20px;
-  margin-top: 30px;
+  color: #F4F4F4;
+  font-weight: 200;
+  margin-bottom: 15px;
 }
 .signup-form {
-  margin-top: 30px;
+  background-color: transparent;
+  width: 300px;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  box-shadow: none;
+  border-bottom: 1px solid #F4F4F4;
+  border-radius: 0px;
+}
+.signup-form:focus {
+  outline: none;
+}
+.signup-form::-webkit-input-placeholder {
+  color: #F4F4F4;
 }
 .submit-btn {
-  margin-top: 20px;
-  margin-bottom: 30px;
-  font-size: 15px;
-  font-weight: 500;
+  background-color: rgba(21, 21, 21, .20);
+  color: #F4F4F4;
+  border-color: transparent;
+  width: 300px;
+  margin-top: 10px;
 }
-#register-hook {
+.submit-btn:focus, .submit-btn:hover {
+  background-color: transparent;
+  color: #DDD;
+  border-color: #DDD;
+  transition: all 0.3s
+}
+#registerHook {
+  color: #DDD;
   font-size: 25px;
   font-weight: 200;
-  margin-bottom: 20px;
 }
-.line {
-  margin-top: 50px; 
+a {
+  color: #DDD;
 }
-#registerForm label{
-  font-size: 18px;
-  font-weight: 200;
-}
-#registerLabel {
-  font-size: 30px;
-  font-weight: 200;
-}
-.register-form {
-  margin-bottom: 30px;
+a:hover {
+  color: #F4F4F4;
+  transition: all 0.3s;
+  text-decoration: none;
 }
 .footer {
-  border-top: 2px solid #D3D3D3;
+  border-top: 1px solid #F4F4F4;
+  margin-top: 20px;
+  padding-top: 20px;
 }
-
-/* ----- REGISTER CSS -----*/
-.register-header {
-  background-color: #303030;
-  width: 100%;
-  height: 70px;
-  position: absolute;
+.footies {
+  color: #F4F4F4;
 }
-#logo {
-  color: #FEFEFE;
+.social {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  margin-bottom: 5px;
 }
-#logIn, #logIn > a:link, #logIn > a:visited {
-  font-size: 20px;
-  padding-top: 30px;
-  text-decoration: none !important;
-  color: #FEFEFE !important;
-}
-#eatonHeader {
-  background-image: url('/public/images/eaton.jpg');
-  background-size: cover;
-  position: absolute;
-  -webkit-filter: brightness(85%);
-  width: 100%;
-  height: 500px;
-}
-.register {
-  margin-top: 50px;
-}
-#title {
-  color: white;
-  margin-bottom: 25px;
-}
-
-/* ---- Medium devices (desktops, 992px and up) ---- */
-  @media (min-width: 992px) {
-    .gisele-header {
-      display: none;
-    }
-    #hook {
-      margin-top: 150px;
-    }
-    .gisele {
-      float: left !important;
-      height: auto;
-      width: 576px;
-    }
-    .line {
-      display: none;
-    }
-  }
-
-/* ---- Medium devices (desktops, 1080px; and up) ---- */
-  @media (min-width: 1080px) {
-    .gisele {
-      width: 600px;
-    }
-    #hook {
-      font-size: 50px;
-    }
-    #register-hook {
-      font-size: 30px;
-    }
-  }
-
-/* ---- Medium devices (desktops, 1280px; and up) ---- */
-  @media (min-width: 1280px) {
-    .gisele {
-      width: 737px;
-    }
-  }
-
-/* ---- Medium devices (desktops, 1440px; and up) ---- */
-  @media (min-width: 1440px) {
-    .gisele {
-      width: 817px;
-    }
-  }
