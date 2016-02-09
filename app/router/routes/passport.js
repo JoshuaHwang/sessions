@@ -1,7 +1,7 @@
 var express        = require('express');
-var app            = express();
-var router         = express.Router();
+var app            = express(); 
 var path           = require('path');
+var router         = express.Router();
 var bodyParser     = require('body-parser');
 var passport       = require('passport');
 var passportLocal  = require('passport-local');
@@ -11,31 +11,18 @@ var mongoose       = require('mongoose');
 var urlParser     = bodyParser.urlencoded({ extended: true });
 var LocalStrategy = passportLocal.Strategy;
 
-/* ----- SCHEMAS ----- */
+/* ----- LOGIN ----- */
+mongoose.connect('mongodb://localhost/users', function(err) {
+  if(err) throw err;
+  console.log('Connected to database!');
+});
+
 var Schema     = mongoose.Schema;
 var userSchema = new Schema({
   email:    { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true }
 });
-
-var Schema           = mongoose.Schema;
-var submissionSchema = new Schema({
-  image:       { type: String, required: true, unique: true },
-  name:        { type: String, required: true, unique: true },
-  description: { type: String, required: true, unique: true },
-  likes:       { type: Number, default: 0 },
-  comments:    { type: Number, default: 0 },
-  chats: [
-    {
-      author: { type: String },
-      body:   { type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }
-    }
-  ]
-});
-
-mongoose.model('Submission', submissionSchema);
-var Submission = mongoose.model('Submission');
 
 mongoose.model('User', userSchema);
 var User = mongoose.model('User');
@@ -58,13 +45,13 @@ var strategy = new LocalStrategy(function(username, password, done) {
 passport.use(strategy);
 
 passport.serializeUser(function(user, done) {
-  console.log(user.username);
+  console.log(user);
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
   User.findById(id, function(err, user) {
-    console.log(user.username);
+    console.log(user);
     done(err, user);
   });
 });
@@ -83,54 +70,6 @@ router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/../app/views/login.html'));
 });
 
-// Submissions
-router.get('/users/submissions', function(req, res) {
-  Submission.find({}, function(err, data) {
-    if(err) throw err;
-    res.send(data);
-  });
-});
-
-router.delete('/users/submissions/:submissions_id', function(req, res) {
-  Submission.remove({ _id: req.params.submissions_id }, function(err, data) {
-    if(err) {
-      console.log(err)
-    } else {
-      res.send(data);
-      console.log('Session deleted!');
-    }  
-  });
-});
-
-router.get('/users/submissions/:submissions_id/likes', function(req, res) {
-  Submission.update({ _id: req.params.submissions_id }, { $inc: { likes: 1 } }, function(err, data) {
-    if(err) {
-      console.log(err)
-    } else {
-      res.send(data);
-      console.log('liked!');
-    }  
-  });
-});
-
-router.post('/upload', urlParser, function(req, res) {
-  var submission = new Submission({
-    image:       req.body.image,
-    name:        req.body.name,
-    description: req.body.description
-  });
-
-  submission.save(function(err) {
-    if(err) {
-      console.log(err)
-    } else {
-      console.log('Session submitted!');
-      res.redirect('/success');
-    }
-  });
-});
-
-// Users
 router.get('/register', function(req, res) {
   res.sendFile(path.join(__dirname + '/views/register.html'));
 });

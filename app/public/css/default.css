@@ -1,11 +1,3 @@
-/* COLOR 
-  white: #FEFEFE;
-  black: #2A23C0;
-  light-gray: #E2E7E5;
-  darker-gray: #7D9394;
-  gray: #A5A5A6;
-  red:  #E45864;
-*/
 html, body {
   width: 100%;
   height: 100%;
@@ -34,8 +26,6 @@ body {
 #company {
   color: #F2F2F2;
   font-size: 30px;
-  font-weight: 100;
-  letter-spacing: 2px;
   margin-top: 5px;
 }
 .logout-icon {
@@ -255,11 +245,11 @@ label {
   width: 270px;
   height: 225px;
   box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  position: relative;
   overflow-y: hidden;
 }
 .session-comments:hover {
   overflow-y: scroll;
-  -webkit-transition: .7s ease;
 }
 .chatter {
   font-size: 12px;
@@ -274,6 +264,25 @@ label {
   margin-left: 2px;
   margin-top: 1px;
 }
+.conversation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.chatterbox-user {
+  width: 80px;
+  height: 25px;
+  display: inline-block;
+}
+.chatterbox {
+  width: 175px;
+  height: 25px;
+  display: inline-block;
+}
+.chatterbox, .chatterbox-user {
+  background: transparent;
+  border-radius: 0px;
+}
 hr {
   margin-bottom: 30px;
 }
@@ -285,8 +294,8 @@ hr {
 }
 .social {
   display: inline-block;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   margin-right: 10px;
   margin-bottom: 5px;
 }
@@ -317,7 +326,7 @@ input::-webkit-search-decoration, input::-webkit-search-cancel-button {
   background-color: #fff;
   color: #FEFEFE !important;
   border-color: #66CC75;
-  box-shadow: 0 0 5px rgba(109,207,246,.5);
+  box-shadow: 0px 0px 5px rgba(109, 207, 246, .5);
 }
 input::-webkit-input-placeholder {
   color: #999;

@@ -54,8 +54,8 @@ html(ng-app="sessionApp")
           a(href ng-click="session.deleteSesh(submission._id)")
             img(src="public/images/x.png" class="delete" alt="Delete icon")
           a(href ng-class="{ active:tab === 1 }" ng-click="tab = tab == 1 ? null: 1")
-            img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
-          span.comments {{ submission.comments }}
+          //-   img(src="public/images/comment-icon.png" class="comment-icon" alt="comment icon")
+          //- span.comments {{ submission.comments }}
           a(href ng-click="session.likeClick(submission._id)")
             img(src="public/images/heart-icon.png" class="like-icon" alt="heart icon")
           span.likes {{ submission.likes }}
@@ -63,6 +63,10 @@ html(ng-app="sessionApp")
           div(ng-repeat="chat in submission.chats")
             span.chatter {{ chat.author }}
             p.chat {{ chat.body }}
+          div.conversation
+            form.form
+            input(type="text" class="form-control chatterbox-user" placeholder="name" name="chatter")
+            input(type="text" class="form-control chatterbox" placeholder="Add a comment..." name="chat")
     footer.footer.container
       div.row
         hr
