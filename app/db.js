@@ -7,6 +7,7 @@ var passport       = require('passport');
 var passportLocal  = require('passport-local');
 var session        = require('express-session');
 var mongoose       = require('mongoose');
+var timestamps     = require('mongoose-timestamp');
 
 var urlParser     = bodyParser.urlencoded({ extended: true });
 var LocalStrategy = passportLocal.Strategy;
@@ -34,6 +35,7 @@ var submissionSchema = new Schema({
   ]
 });
 
+submissionSchema.plugin(timestamps);
 mongoose.model('Submission', submissionSchema);
 var Submission = mongoose.model('Submission');
 
@@ -122,7 +124,15 @@ router.post('/upload', urlParser, function(req, res) {
 
   submission.save(function(err) {
     if(err) {
-      console.log(err)
+      console.log(submission.createdAt);
+      console.log(submission.createdAt === submission.updatedAt);
+
+      setTimeout(function() {
+        submission.save(function(err) {
+          console.log(submission.createdAt);
+          console.log(submission.createdAt < submission.updatedAt);
+        });
+      }, 1000);
     } else {
       console.log('Session submitted!');
       res.redirect('/success');

@@ -226,7 +226,7 @@ label {
 .submission-name, .describe {
   margin-left: 5px;
 }
-.comment-icon, .like-icon {
+.clock-icon, .like-icon {
   margin-top: 4px;
   margin-right: 3px;
 }
@@ -235,7 +235,7 @@ label {
   margin-top: 3px;
   margin-left: 5px;
 }
-.likes, .comments {
+.likes, .date {
   font-size: 13px;
   font-weight: 500;
   color: #8D8D8D;
