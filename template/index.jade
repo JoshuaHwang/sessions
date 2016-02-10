@@ -54,7 +54,7 @@ html(ng-app="sessionApp")
             img(src="public/images/x.png" class="delete" alt="Delete icon")
           a(href ng-class="{ active:tab === 1 }" ng-click="tab = tab == 1 ? null: 1")
           img(src="public/images/clock-icon.png" class="clock-icon" alt="comment icon")
-          span.date {{ submission.createdAt | date:'shortDate' }}
+          span.date {{ submission.createdAt | date:'shortTime' }}
           a(href ng-click="session.likeClick(submission._id)")
             img(src="public/images/heart-icon.png" class="like-icon" alt="heart icon")
           span.likes {{ submission.likes }}
