@@ -1,6 +1,12 @@
 # Sessions
 A websites that provides fashion artists an opportunity to get their work created
 
+#### Visit this webpage here
+https://sessions-occs.herokuapp.com/
+
+- Username: Yeezus
+- Password: north
+
 #### Built with the following technologies
 - Mongodb
 - Angular.js
