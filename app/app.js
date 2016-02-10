@@ -8,7 +8,7 @@ var mongoose      = require('mongoose');
 
 var app = express();
 
-var db = mongoose.connect('mongodb://localhost/users/', function(err) {
+var db = mongoose.connect('mongodb://users:occs@ds059375.mongolab.com:59375/users/', function(err) {
   if(err) throw err;
   console.log('Connected to users database!');
 });
@@ -18,7 +18,7 @@ app.use('/', require('./db.js'));
 
 var server = require('http').createServer(app);
 
-var port = Number(process.env.PORT || 3000);
+var port = process.env.PORT || 3000;
 
-server.listen(port);
+app.listen(port);
 console.log('3000 is the magic port!');
